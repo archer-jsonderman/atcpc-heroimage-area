@@ -17,26 +17,9 @@ import {
 } from "./utils"
 import { createClient } from "contentful";
 import "./index.css"
-import { Editor } from "@tinymce/tinymce-react";
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 
-const client = createClient({
-	space:'atrz6g4jfzlh',
-	accessToken:'ee70d3df3097cf22e4a4e2eb6b74b0287a582b4aaea836b5e8661642a5bf3e2f'
-})
-const editorOptions = {
-   menubar:false,
-    width:"100%",
-    max_height:300,
-    cache_suffix: "?v=4.1.6", 
-    plugins:[
-	    "autoresize"
-    ],
-    resize:false,
-    toolbar:"bold italic superscript subscript | removeformat",
-    statusbar:false
-}
-
-const EDITOR_API = 'yfabt5bjld0qgxm3o2pfj7bik9kh97dn9tw4lquyz1jedpp9';
 
 class App extends React.Component {
   static propTypes = {
@@ -124,15 +107,9 @@ class App extends React.Component {
     }
   }
   
-  onEdit = event => {
-    const value = event.currentTarget.value
-   // console.log(this.props.sdk.entry.fields.heroHeadline.getValue())
-    this.setState({ headline: value }, ()=>{this.props.sdk.entry.fields.heroHeadline.setValue(this.state.headline)})
-   // console.log(this.props.sdk.entry.fields.heroHeadline.getValue())
-  }
-  handleEditorChange = (e) => { 
-      this.setState({ headline: e.target.getContent() })
-      this.props.sdk.entry.fields.heroHeadline.setValue(e.target.getContent())
+  handleEditorChange = (value) => { 
+      this.setState({ headline: value) })
+      this.props.sdk.entry.fields.heroHeadline.setValue(value)
    }
 
   onClickEdit = () => {
@@ -409,7 +386,14 @@ class App extends React.Component {
       uploadProgress: percent
     })
   }
-
+  
+  
+  modules = {
+		toolbar: [
+			['bold', 'italic', {'script':'super'}],
+	      ['clean']
+		    ],
+	  }
   render = () => {
 	  
     if (this.state.uploading) {
@@ -428,16 +412,13 @@ class App extends React.Component {
       //console.log(this.props.sdk.entry.fields.heroHeadline.getValue()+' entry field');
       return (
 	    <>  
-	    <Editor 
-	    	apiKey="yfabt5bjld0qgxm3o2pfj7bik9kh97dn9tw4lquyz1jedpp9" 
-	    	
-	    	onChange={e => this.handleEditorChange(e)}
-	    	value = {this.state.headline}
-	    	textareaName="heroHeadline"
-	    	id="hero_headline"
-	    	init={editorOptions}
-	    	apiKey={EDITOR_API}
-		/>
+		<ReactQuill 
+	  		name="hero-headline"
+	  		id="hero-headline" 
+	  		value={this.state.headline||''}
+	  		onChange={(value)=>this.handleEditorchange(value)} 
+	  		modules={this.modules}
+	  		/>
 	   
         <FileView
           file={this.state.asset.fields.file[this.findProperLocale()]}
