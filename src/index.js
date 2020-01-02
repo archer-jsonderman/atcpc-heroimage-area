@@ -108,7 +108,7 @@ class App extends React.Component {
   }
   
   handleEditorChange = (value) => { 
-      this.setState({ headline: value) })
+      this.setState({ headline: value })
       this.props.sdk.entry.fields.heroHeadline.setValue(value)
    }
 
@@ -412,6 +412,7 @@ class App extends React.Component {
       //console.log(this.props.sdk.entry.fields.heroHeadline.getValue()+' entry field');
       return (
 	    <>  
+	    <label className="FormLabel__FormLabel___3d6zQ" data-test-id="cf-ui-form-label" htmlFor="hero-headline">Hero Headline</label>
 		<ReactQuill 
 	  		name="hero-headline"
 	  		id="hero-headline" 
@@ -419,7 +420,8 @@ class App extends React.Component {
 	  		onChange={(value)=>this.handleEditorchange(value)} 
 	  		modules={this.modules}
 	  		/>
-	   
+	   <label className="FormLabel__FormLabel___3d6zQ" data-test-id="cf-ui-form-label" >Hero Image</label>
+
         <FileView
           file={this.state.asset.fields.file[this.findProperLocale()]}
           isPublished={

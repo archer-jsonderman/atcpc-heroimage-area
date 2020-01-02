@@ -57,20 +57,13 @@ export default function FileView(props) {
 
           
           {type === "image" ? (
-            <Paragraph className="row">
+            <Paragraph >
               <strong>Dimensions:</strong> {file.details.image.width}x
               {file.details.image.height}
             </Paragraph>
           ) : null}
-          <Paragraph className="row">
+          <Paragraph >
             <strong>Size:</strong> {prettySize}
-          </Paragraph>
-
-          <Paragraph className="row">
-            <strong>Type:</strong> {file.contentType}
-          </Paragraph>
-          <Paragraph className="row">
-            <strong>Status:</strong> {props.isPublished ? "Published" : "Draft"}
           </Paragraph>
           
         </main>

@@ -1,6 +1,6 @@
 {
   "id": "atcpc-hero-image-area",
-  "name": "Hero Image Area",
+  "name": "Dev Hero Image Area",
   "srcdoc": "./build/index.html",
   "sidebar":false,
   "fieldTypes": [
