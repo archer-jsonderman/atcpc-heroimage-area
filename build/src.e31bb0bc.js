@@ -41521,11 +41521,11 @@ function FileView(props) {
     className: "buttonset"
   }, _react.default.createElement(_forma36ReactComponents.Heading, {
     className: "filename"
-  }, file.fileName), _react.default.createElement(_forma36ReactComponents.Button, {
+  }, file.fileName)), type === "image" ? _react.default.createElement(_forma36ReactComponents.Paragraph, null, _react.default.createElement("strong", null, "Dimensions:"), " ", file.details.image.width, "x", file.details.image.height) : null, _react.default.createElement(_forma36ReactComponents.Paragraph, null, _react.default.createElement("strong", null, "Size:"), " ", prettySize), _react.default.createElement(_forma36ReactComponents.Button, {
     buttonType: "muted",
     className: "button",
     onClick: props.onClickRemove
-  }, "Remove")), type === "image" ? _react.default.createElement(_forma36ReactComponents.Paragraph, null, _react.default.createElement("strong", null, "Dimensions:"), " ", file.details.image.width, "x", file.details.image.height) : null, _react.default.createElement(_forma36ReactComponents.Paragraph, null, _react.default.createElement("strong", null, "Size:"), " ", prettySize)))));
+  }, "Remove")))));
 }
 },{"react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","@contentful/forma-36-react-components":"../node_modules/@contentful/forma-36-react-components/dist/esm/index.js","contentful-ui-extensions-sdk":"../node_modules/contentful-ui-extensions-sdk/dist/cf-extension-api.js","../Dropzone":"components/Dropzone.js","./fileview.css":"components/FileView/fileview.css"}],"utils.js":[function(require,module,exports) {
 "use strict";
@@ -70678,7 +70678,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56134" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61222" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

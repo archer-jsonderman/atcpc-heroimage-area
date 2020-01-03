@@ -11,13 +11,15 @@
 
 .file-view.image-file {
   grid-template-rows: 1fr minmax(40%, 1fr);
-  /*grid-column-gap: 2rem;*/
+  grid-template: auto auto / 285px auto;
+  grid-column-gap: .5rem;
 }
 
 .file-view.image-file header {
-  background:#f2f2f2 no-repeat center center;
-  background-size: contain;
-      height: 20rem;
+  background:#f2f2f2 no-repeat top left;
+  background-size: cover;
+      height: 200px;
+      width:100%;
 }
 
 .file-view.non-image-file header .file-type-icon svg {
@@ -60,7 +62,7 @@
   height: 100%;
 }
 .dropzone {
-    margin-top: 1.5rem;
+    margin-top: .5rem;
 }
 .details .buttonset{
 	grid-column: 1/3;

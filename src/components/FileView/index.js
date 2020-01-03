@@ -46,13 +46,7 @@ export default function FileView(props) {
         <main>
           <nav className="buttonset">
 	          <Heading className="filename">{file.fileName}</Heading>
-	          <Button
-	            buttonType="muted"
-	            className="button"
-	            onClick={props.onClickRemove}
-	          >
-	            Remove
-	          </Button>
+	          
 	        </nav>
 
           
@@ -65,7 +59,13 @@ export default function FileView(props) {
           <Paragraph >
             <strong>Size:</strong> {prettySize}
           </Paragraph>
-          
+          <Button
+	            buttonType="muted"
+	            className="button"
+	            onClick={props.onClickRemove}
+	          >
+	            Remove
+	          </Button>
         </main>
               </section>
     </Dropzone>
